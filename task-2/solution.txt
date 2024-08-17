@@ -1,0 +1,22 @@
+osc@osc:~$ git config --global user.name omar-7salama
+osc@osc:~$ git config --global user.email omar.ahmed.hawary7@gmail.com
+osc@osc:~$ git clone https://github.com/omar-7salama/OSC_Task.git
+osc@osc:~$ cd OSC_Task
+osc@osc:~/OSC_Task$ mkdir task-2
+osc@osc:~/OSC_Task$ cd task-2
+osc@osc:~/OSC_Task/task-2$ touch greeting.txt
+osc@osc:~/OSC_Task/task-2$ nano greeting.txt
+osc@osc:~/OSC_Task/task-2$ cat greeting.txt
+hello world
+osc@osc:~/OSC_Task/task-2$ git add greeting.txt
+osc@osc:~/OSC_Task/task-2$ git commit -m "Added greeting"
+osc@osc:~/OSC_Task/task-2$ git checkout -b intro
+osc@osc:~/OSC_Task/task-2$ nano greeting.txt
+osc@osc:~/OSC_Task/task-2$ cat greeting.txt
+hello world
+i love Git
+osc@osc:~/OSC_Task/task-2$ git add greeting.txt
+osc@osc:~/OSC_Task/task-2$ git commit -m "Added greeting i love git"
+osc@osc:~/OSC_Task/task-2$ git checkout main
+osc@osc:~/OSC_Task/task-2$ git merge intro
+osc@osc:~/OSC_Task/task-2$ git tag v1
