@@ -1,152 +1,47 @@
- mkdir project
-cd project_files
-~/project_files$ mkdir reports logs data
-~/project_files$ cd reports
-~/project_files/reports$ touch report1.md report2.md
-~/project_files/reports$ ls
-~/project_files/reports$ cd ..
-~/project_files$ cd logs
-~/project_files/logs$ touch system.log error.log file1.pdf file.pdf
-osc@osc:~/project_files/logs$ cd ..
-osc@osc:~/project_files$ cd data
-osc@osc:~/project_files/data$ touch data.csv info.txt
-osc@osc:~/project_files/data$ ls
-data.csv  info.txt
-osc@osc:~/project_files/data$ nano data
-osc@osc:~/project_files/data$ cat data
-ahahahahahahahah
-osc@osc:~/project_files/data$ cd ..
-osc@osc:~/project_files$ cd logs
-osc@osc:~/project_files/logs$ nano system.log
-osc@osc:~/project_files/logs$ cat system.log
-hahahahahahahahahahah
-osc@osc:~/project_files/logs$ cd ..
-osc@osc:~/project_files$ cd reports 
-osc@osc:~/project_files/reports$ nano report1
-osc@osc:~/project_files/reports$ cat report1
-hahahahahahaha
-osc@osc:~/project_files/reports$ cd ..
-osc@osc:~/project_files$ cd logs
-osc@osc:~/project_files/logs$ tar -cf logs_backup.tar "*.log" "*.pdf" 
-tar: *.log: Cannot stat: No such file or directory
-tar: *.pdf: Cannot stat: No such file or directory
-tar: Exiting with failure status due to previous errors
-osc@osc:~/project_files/logs$ tar -cf logs_backup.tar *.log *.pdf
-osc@osc:~/project_files/logs$ ls
-error.log  file1.pdf  file.pdf  logs_backup.tar  system.log
-osc@osc:~/project_files/logs$ mv logs_backup.tar ~/project_files/
-osc@osc:~/project_files/logs$ tar -xf logs_backup.tar ~/project_files/logs_backup.tar/
-tar: logs_backup.tar: Cannot open: No such file or directory
-tar: Error is not recoverable: exiting now
-osc@osc:~/project_files/logs$ cd ..
-osc@osc:~/project_files$ tar -xf logs_backup.tar -c logs
-tar: You may not specify more than one '-Acdtrux', '--delete' or  '--test-label' option
-Try 'tar --help' or 'tar --usage' for more information.
-osc@osc:~/project_files$ tar -xf logs_backup.tar -C logs
-osc@osc:~/project_files$ cd logs
-osc@osc:~/project_files/logs$ ls
-error.log  file1.pdf  file.pdf  system.log
-osc@osc:~/project_files/logs$ cd ..
-osc@osc:~/project_files$ cd ..
-osc@osc:~$ cd project_files/
-osc@osc:~/project_files$ find ~ -name "*.md"
-/home/osc/OSC_Task/README.md
-/home/osc/project_files/reports/report2.md
-/home/osc/project_files/reports/report1.md
-osc@osc:~/project_files$ find . -name "*.log"
-./logs/error.log
-./logs/system.log
-osc@osc:~/project_files$ find . -name file1.pdf
-./logs/file1.pdf
-osc@osc:~/project_files$ find . -iname "*.pdf"
-./logs/file1.pdf
-./logs/file.pdf
-osc@osc:~/project_files$ cd logs
-osc@osc:~/project_files/logs$ find . -type f 
-./error.log
-./system.log
-./file1.pdf
-./file.pdf
-osc@osc:~/project_files/logs$ cd ..
-osc@osc:~/project_files$ ln -s /data/data.csv/ link_data.csv
-osc@osc:~/project_files$ ls -l
-total 24
-drwxrwxr-x 2 osc osc  4096 Aug 21 17:48 data
-lrwxrwxrwx 1 osc osc    15 Aug 21 18:21 link_data.csv -> /data/data.csv/
-drwxrwxr-x 2 osc osc  4096 Aug 21 18:09 logs
--rw-rw-r-- 1 osc osc 10240 Aug 21 17:57 logs_backup.tar
-drwxrwxr-x 2 osc osc  4096 Aug 21 17:50 reports
-osc@osc:~/project_files$ nano link_data.csv
-osc@osc:~/project_files$ cd data
-osc@osc:~/project_files/data$ cd ..
-osc@osc:~/project_files$ nano link_data.csv
-osc@osc:~/project_files$ rm link_data.csv
-osc@osc:~/project_files$ ln -s ~/project_files/data/data.csv/ ~/project_files/link_data.csv
-osc@osc:~/project_files$ ls -l
-total 24
-drwxrwxr-x 2 osc osc  4096 Aug 21 17:48 data
-lrwxrwxrwx 1 osc osc    38 Aug 21 18:31 link_data.csv -> /home/osc/project_files/data/data.csv/
-drwxrwxr-x 2 osc osc  4096 Aug 21 18:09 logs
--rw-rw-r-- 1 osc osc 10240 Aug 21 17:57 logs_backup.tar
-drwxrwxr-x 2 osc osc  4096 Aug 21 17:50 reports
-osc@osc:~/project_files$ cat link_data.csv 
-cat: link_data.csv: Not a directory
-osc@osc:~/project_files$ ln -s ~/project_files/data/data.csv ~/project_files/link_data.csv
-ln: failed to create symbolic link '/home/osc/project_files/link_data.csv': File exists
-osc@osc:~/project_files$ rm link_data.csv
-osc@osc:~/project_files$ ln -s ~/project_files/data/data.csv ~/project_files/link_data.csv
-osc@osc:~/project_files$ cat link_data.csv
-osc@osc:~/project_files$ cd data
-osc@osc:~/project_files/data$ nano data.csv
-osc@osc:~/project_files/data$ cd ..
-osc@osc:~/project_files$ cat link_data.csv
-hahahahahah
-osc@osc:~/project_files$ nano link_data.csv 
-osc@osc:~/project_files$ cd data
-osc@osc:~/project_files/data$ cat data.csv
-hahahahahah
-lolololololo
-osc@osc:~/project_files/data$ rm link_data.csv
-rm: cannot remove 'link_data.csv': No such file or directory
-osc@osc:~/project_files/data$ cd ..
-osc@osc:~/project_files$ rm link_data.csv
-osc@osc:~/project_files$ echo "summary.txt" > ~/project_file/summary.txt
-bash: /home/osc/project_file/summary.txt: No such file or directory
-osc@osc:~/project_files$ echo "summary.txt" > ~/project_files/summary.txt
-osc@osc:~/project_files$ cat summary.txt 
-summary.txt
-osc@osc:~/project_files$ date >> summary.txt
-osc@osc:~/project_files$ cat summary.txt 
-summary.txt
-Wed Aug 21 06:43:38 PM EEST 2024
-osc@osc:~/project_files$ wc -l ~/project_files/summary.txt | tee summary.txt 
-0 /home/osc/project_files/summary.txt
-osc@osc:~/project_files$ cat summary.txt 
-0 /home/osc/project_files/summary.txt
-osc@osc:~/project_files$ echo "summary.txt" > ~/project_files/summary.txt
-osc@osc:~/project_files$ date >> summary.txt
-osc@osc:~/project_files$ wc -l < ~/project_files/summary.txt | tee -a summary.txt 
-2
-osc@osc:~/project_files$ wc -w < ~/project_files/logs | tee -a summary.txt 
-logs/            logs_backup.tar  
-osc@osc:~/project_files$ wc -w < ~/project_files/logs | tee -a summary.txt 
-logs/            logs_backup.tar  
-osc@osc:~/project_files$ wc -w < ~/project_files/reports/report1.md 
-0
-osc@osc:~/project_files$ cd report
-bash: cd: report: No such file or directory
-osc@osc:~/project_files$ cd reports
-osc@osc:~/project_files/reports$ nano report1.md
-osc@osc:~/project_files/reports$ cd ..
-osc@osc:~/project_files$ wc -w < ~/project_files/reports/report1.md 
-1
-osc@osc:~/project_files$ wc -c < ~/project_files/logs/system.log | tee -a ~/project_files/summary.txt 
-22
-osc@osc:~/project_files$ find ~/project_files | wc -l | tee -a ~/project_files/summary.txt 
-14
-osc@osc:~/project_files$ cat ~/project_files/summary.txt 
-summary.txt
-Wed Aug 21 06:52:58 PM EEST 2024
-2
-22
-14
+ mkdir project_files
+ cd project_files
+ mkdir reports logs data
+ cd reports
+ touch report1.md report2.md
+ cd ..
+ cd logs
+ touch system.log error.log file1.pdf file.pdf
+ cd ..
+ cd data
+ touch data.csv info.txt
+ nano data.csv
+ cd ..
+ cd logs
+ nano system.log
+ cd .. 
+ nano report1.md
+ cd logs
+ tar -cf logs_backup.tar *.log *.pdf
+ mv logs_backup.tar ~/project_files/
+ cd ..
+ tar -xf logs_backup.tar -C logs
+ find ~ -name "*.md"
+ find . -name "*.log "
+ find . -name file1.pdf
+ find . -iname "*.pdf"
+ cd logs
+ find . -type f 
+ cd ..
+ ln -s ~/project_files/data/data.csv ~/project_files/link_data.csv
+ cat link_data.csv
+ nano data.csv
+ nano link_data.csv
+ cat link_csv 
+ rm link_data.csv
+ echo "summary.txt" > ~/project_files/summary.txt
+ cat summary.txt 
+ date >> summary.txt
+ cat summary.txt
+ wc -l < ~/project_files/summary.txt | tee -a summary.txt 
+ wc -w < ~/project_files/reports/report1.md
+ wc -c < ~/project_files/logs/system.log  | tee -a  ~/project_files/summary.txt 
+ find ~/project_files | wc -l | tee -a ~/project_files/summary.txt 
+ cat ~/project_files/summary.txt 
+ git add solution.txt
+ git commit -m "Added solution"
+ git push origin main
